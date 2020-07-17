@@ -98,7 +98,9 @@ public class JdbcHelper {
 			PreparedStatement pstmt = ThreadRepository.getPreparedsStatement();
 			for (int i=0; i<params.length; i++) {
 				Object param = params[i];
-				if (param instanceof String) {
+				if (param == null) {
+					pstmt.setObject(i+1, null);
+				} else if (param instanceof String) {
 					pstmt.setString(i+1, (String) param);
 				} else if (param instanceof Integer) {
 					pstmt.setInt(i+1, (Integer) param);

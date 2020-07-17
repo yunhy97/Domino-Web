@@ -176,7 +176,7 @@ public class QnaDao {
 		while(rs.next()) {
 			questionDto = resultSetToQuestion(rs);
 		}
-		
+	
 		rs.close();
 		pstmt.close();
 		connection.close();
